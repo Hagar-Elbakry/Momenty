@@ -22,7 +22,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                     <div>
-                        <img src="images/logo.png" alt="Momenty" style="height: 25px; border-right: 1px solid #333;" class="pr-3">
+                        <img src="/images/logo.png" alt="Momenty" style="height: 25px; border-right: 1px solid #333;" class="pr-3">
                     </div>
                     <div class="pt-1" style="padding-left: 6px">Momenty</div>
                 </a>
@@ -54,7 +54,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

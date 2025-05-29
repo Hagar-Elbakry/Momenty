@@ -8,7 +8,7 @@
         </div>
         <div class="col-9 pt-5">
             <div>
-                <h1>Hagar Elbakry</h1>
+                <h1>{{$user->username}}</h1>
             </div>
             <div class="d-flex">
                 <div style="padding-right: 48px">
@@ -22,7 +22,10 @@
                 </div>
             </div>
             <div class="pt-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet at dignissimos dolorem dolorum id laboriosam molestiae perspiciatis quasi recusandae, repellat, repellendus rerum sapiente sed similique tenetur, veritatis voluptatem voluptatibus?
+                {{$user->profile->bio}}
+            </div>
+            <div>
+                <a href="#">{{$user->profile->url ?? 'N/A'}}</a>
             </div>
         </div>
     </div>
