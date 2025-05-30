@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Laravel\Facades\Image;
 
 class PostController extends Controller
 {
@@ -21,6 +22,8 @@ class PostController extends Controller
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
+        $image = Image::read(public_path() . '/storage/' . $imagePath)->cover(1200,1200);
+        $image->save();
         $attributes['image'] = $imagePath;
         auth()->user()->posts()->create($attributes);
         return redirect('/profile/'. auth()->user()->id);
