@@ -7,8 +7,9 @@
             <img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="default-avatar" class="rounded-circle">
         </div>
         <div class="col-9 pt-5">
-            <div>
+            <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{$user->username}}</h1>
+                <a href="#" class="text-decoration-none">Add New Post</a>
             </div>
             <div class="d-flex">
                 <div style="padding-right: 48px">
