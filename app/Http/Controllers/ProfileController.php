@@ -9,6 +9,6 @@ class ProfileController extends Controller
 {
     public function index($user) {
         $user = User::find($user);
-        return view('home', compact('user'));
+        return view('profiles.index', compact('user'));
     }
 }
