@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Laravel\Facades\Image;
 
@@ -27,5 +28,9 @@ class PostController extends Controller
         $attributes['image'] = $imagePath;
         auth()->user()->posts()->create($attributes);
         return redirect('/profile/'. auth()->user()->id);
+    }
+
+    public function show(Post $post) {
+        return view('posts.show', compact('post'));
     }
 }
