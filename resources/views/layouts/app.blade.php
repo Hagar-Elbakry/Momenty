@@ -24,7 +24,7 @@
                     <div>
                         <img src="/images/logo.png" alt="Momenty" style="height: 25px; border-right: 1px solid #333;" class="pr-3">
                     </div>
-                    <div class="pt-1" style="padding-left: 6px">Momenty</div>
+                    <div class="pt-1" style="padding-left: 6px; font-weight: bold">Momenty</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
