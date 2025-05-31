@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->text('bio')->nullable();
             $table->text('url')->nullable();
+            $table->string('image')->nullable();
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
