@@ -42,7 +42,7 @@ Uploaded files are stored in `storage/app/public/` and are accessible via the `p
 
 1. **Clone the repository**
    ```sh
-   git clone [https://github.com/Hagar-Elbakry/Momenty.git](https://github.com/Hagar-Elbakry/Momenty.git)
+   git clone https://github.com/Hagar-Elbakry/Momenty.git
    cd Momenty
    ```
 
