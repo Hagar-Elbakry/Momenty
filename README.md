@@ -21,7 +21,7 @@ Momenty is a Laravel-based social photo sharing application. Users can register,
 
 ## File Storage
 
-This project use Laravel's built-in file storage system to handle user-uploaded files, such as profile avatars and banners.
+This project use Laravel's built-in file storage system to handle user-uploaded files, such as profile avatars and posts.
 Make sure to create a symbolic link for the `storage` directory with the following command:
 
 ```sh
