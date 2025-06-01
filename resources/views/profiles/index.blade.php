@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="row pt-5">
-            @foreach($user->posts as $post)
+            @forelse($user->posts as $post)
                 <div class="col-4 pb-4">
                     <a href="/post/{{$post->id}}">
                         <img src="/storage/{{$post->image}}" alt="" class="w-100">
@@ -60,9 +60,13 @@
                             @method('DELETE')
                             <button class="btn btn-primary" style="margin-left: 315px">Delete Post</button>
                         </form>
-                    @endcan    
+                    @endcan
                 </div>
-            @endforeach
+            @empty
+                    <div class="d-flex justify-content-center">
+                        <p style="font-weight: bold">No Posts Yet !</p>
+                    </div>
+            @endforelse
         </div>
     </div>
 @endsection

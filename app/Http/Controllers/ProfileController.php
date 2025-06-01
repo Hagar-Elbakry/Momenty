@@ -46,12 +46,8 @@ class ProfileController extends Controller
             $image->save();
             $attributes['image'] = $imagePath;
         }
-
-        auth()->user()->profile()->update([
-            'bio' => request('bio'),
-            'url' => $attributes['url'],
-            'image' => $attributes['image']
-        ]);
+        $attributes['bio'] = request('bio');
+        auth()->user()->profile()->update($attributes);
         return redirect("profile/" . auth()->user()->id);
     }
 }
