@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="row mb-0">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn" style="background-color:#FF0B55; border-color: #FF0B55; color: white">Save</button>
                     </div>
                 </form>
             </div>

@@ -14,26 +14,26 @@
                         <form action="/follow/{{$user->id}}" method="post">
                             @csrf
                                 @if($follows)
-                                    <button class="btn btn-primary" style="margin-left: 20px">Unfollow</button>
+                                    <button class="btn"  style="margin-left: 20px; background-color:#FF0B55; border-color: #FF0B55; color: white">Unfollow</button>
                                 @else
-                                    <button class="btn btn-primary" style="margin-left: 20px">Follow</button>
+                                    <button class="btn btn-primary" style="margin-left: 20px; background-color:#FF0B55; border-color: #FF0B55; color: white">Follow</button>
                                 @endif
                         </form>
                     @endif
                     </div>
 
                     @can('update', $user->profile)
-                        <a href="/post/create" class="text-decoration-none">Add New Post</a>
+                        <a href="/post/create" class="text-decoration-none" style="color: #FF0B55">Add New Post</a>
                     @endcan
                 </div>
                 @can('update', $user->profile)
                     <div class="d-flex">
-                        <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+                        <a href="/profile/{{$user->id}}/edit" style="color: #FF0B55">Edit Profile</a>
                         @if($user->profile->image)
                             <form id="delete-photo" action="/profile/{{$user->id}}/deletePhoto" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a style="padding-left: 5px" href="/profile/{{$user->id}}/deletePhoto"
+                                <a style="padding-left: 5px; color: #FF0B55" href="/profile/{{$user->id}}/deletePhoto"
                                    onclick="event.preventDefault();
                                                          document.getElementById('delete-photo').submit();">
                                     Delete Photo
@@ -57,7 +57,7 @@
                     {{$user->profile->bio}}
                 </div>
                 <div>
-                    <a href="#">{{$user->profile->url ?? 'N/A'}}</a>
+                    <a href="#" style="color: #FF0B55">{{$user->profile->url ?? 'N/A'}}</a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
                         <form action="/post/{{$post->id}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-primary" style="margin-left: 315px">Delete Post</button>
+                            <button class="btn" style="margin-left: 315px; background-color:#FF0B55; border-color: #FF0B55; color: white; margin-top: 2px">Delete Post</button>
                         </form>
                     @endcan
                 </div>
