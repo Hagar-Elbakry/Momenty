@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 
 class ProfileController extends Controller
@@ -41,6 +43,9 @@ class ProfileController extends Controller
         ]);
 
         if(request('image')) {
+            if($user->profile->image) {
+                Storage::delete($user->profile->image);
+            }
             $imagePath = request('image')->store('profile', 'public');
             $image = Image::read(public_path("storage/{$imagePath}"))->cover(1000,1000);
             $image->save();
@@ -49,5 +54,15 @@ class ProfileController extends Controller
         $attributes['bio'] = request('bio');
         auth()->user()->profile()->update($attributes);
         return redirect("profile/" . auth()->user()->id);
+    }
+
+    public function destroyPhoto(User $user) {
+        $this->authorize('update', $user->profile);
+        Storage::delete($user->profile->image);
+        $user->profile->update([
+            'image' => null
+        ]);
+
+        return redirect()->back();
     }
 }

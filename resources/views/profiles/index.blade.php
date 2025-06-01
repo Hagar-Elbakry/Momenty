@@ -27,7 +27,20 @@
                     @endcan
                 </div>
                 @can('update', $user->profile)
-                     <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+                    <div class="d-flex">
+                        <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+                        @if($user->profile->image)
+                            <form id="delete-photo" action="/profile/{{$user->id}}/deletePhoto" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <a style="padding-left: 5px" href="/profile/{{$user->id}}/deletePhoto"
+                                   onclick="event.preventDefault();
+                                                         document.getElementById('delete-photo').submit();">
+                                    Delete Photo
+                                </a>
+                            </form>
+                    @endif
+                    </div>
                 @endcan
                 <div class="d-flex">
                     <div style="padding-right: 48px">
