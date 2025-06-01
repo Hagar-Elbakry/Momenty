@@ -8,7 +8,18 @@
             </div>
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <h1>{{$user->username}}</h1>
+                    <div class="d-flex align-items-center" style="padding-bottom: 10px">
+                        <div class="h4">{{$user->username}}</div>
+                        <form action="/follow/{{$user->id}}" method="post">
+                            @csrf
+                                @if($follows)
+                                    <button class="btn btn-primary" style="margin-left: 20px">Unfollow</button>
+                                @else
+                                    <button class="btn btn-primary" style="margin-left: 20px">Follow</button>
+                                @endif
+                        </form>
+                    </div>
+
                     @can('update', $user->profile)
                         <a href="/post/create" class="text-decoration-none">Add New Post</a>
                     @endcan
@@ -21,10 +32,10 @@
                         <strong>{{$user->posts->count()}}</strong> Posts
                     </div>
                     <div style="padding-right: 48px">
-                        <strong>23K</strong> Followers
+                        <strong>{{$user->profile->followers->count()}}</strong> Followers
                     </div>
                     <div style="padding-right: 48px">
-                        <strong>212</strong> Following
+                        <strong>{{$user->following->count()}}</strong> Following
                     </div>
                 </div>
                 <div class="pt-4">

@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany(Post::class)->latest();
     }
+
+    public function following() {
+        return $this->belongsToMany(Profile::class);
+    }
 }
