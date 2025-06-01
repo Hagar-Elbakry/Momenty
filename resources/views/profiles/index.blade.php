@@ -29,13 +29,13 @@
                 @endcan
                 <div class="d-flex">
                     <div style="padding-right: 48px">
-                        <strong>{{$user->posts->count()}}</strong> Posts
+                        <strong>{{$postsCount}}</strong> Posts
                     </div>
                     <div style="padding-right: 48px">
-                        <strong>{{$user->profile->followers->count()}}</strong> Followers
+                        <strong>{{$followersCount}}</strong> Followers
                     </div>
                     <div style="padding-right: 48px">
-                        <strong>{{$user->following->count()}}</strong> Following
+                        <strong>{{$followingCount}}</strong> Following
                     </div>
                 </div>
                 <div class="pt-4">
