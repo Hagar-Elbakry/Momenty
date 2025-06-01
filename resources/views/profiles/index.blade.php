@@ -10,6 +10,7 @@
                 <div class="d-flex justify-content-between align-items-baseline">
                     <div class="d-flex align-items-center" style="padding-bottom: 10px">
                         <div class="h4">{{$user->username}}</div>
+                    @if(!auth()->check() || auth()->user()->id != $user->id)
                         <form action="/follow/{{$user->id}}" method="post">
                             @csrf
                                 @if($follows)
@@ -18,6 +19,7 @@
                                     <button class="btn btn-primary" style="margin-left: 20px">Follow</button>
                                 @endif
                         </form>
+                    @endif
                     </div>
 
                     @can('update', $user->profile)
