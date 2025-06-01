@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 
 class PostController extends Controller
@@ -37,5 +38,11 @@ class PostController extends Controller
 
     public function show(Post $post) {
         return view('posts.show', compact('post'));
+    }
+
+    public function destroy(Post $post) {
+        $this->authorize('delete', $post);
+        $post->delete();
+        return redirect()->back();
     }
 }

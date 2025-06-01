@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 
+
 Auth::routes();
 
 Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.show');
@@ -16,4 +17,5 @@ Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('pro
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 Route::post('/post', [PostController::class, 'store'])->name('post.store');
 Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
+Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 Route::post('/follow/{user}', [FollowController::class, 'store'])->name('follow.store');

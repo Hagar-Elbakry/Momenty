@@ -54,6 +54,13 @@
                     <a href="/post/{{$post->id}}">
                         <img src="/storage/{{$post->image}}" alt="" class="w-100">
                     </a>
+                    @can('delete', $post)
+                        <form action="/post/{{$post->id}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-primary" style="margin-left: 315px">Delete Post</button>
+                        </form>
+                    @endcan    
                 </div>
             @endforeach
         </div>
