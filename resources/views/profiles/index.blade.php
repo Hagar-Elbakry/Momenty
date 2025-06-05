@@ -57,7 +57,7 @@
                     {{$user->profile->bio}}
                 </div>
                 <div>
-                    <a href="#" style="color: #FF0B55">{{$user->profile->url ?? 'N/A'}}</a>
+                    <a href="{{$user->profile->url ?? '#'}}" style="color: #FF0B55">{{$user->profile->url ?? 'N/A'}}</a>
                 </div>
             </div>
         </div>
